@@ -21,6 +21,6 @@ from static_pages_1 import views
 urlpatterns = [
     path('', views.home, name='home'),   
     path('about/', views.About, name="about"),
-    path('services/', views.Services, name="services"),
     path('contact/', views.Contact, name="contact"),
+    path('services/', views.Programs, name="services"),
 ]

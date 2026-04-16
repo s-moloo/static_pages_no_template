@@ -1,57 +1,67 @@
+from os import name
+
 from django.shortcuts import render
 from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to ABC College!")
+
+def About(request): 
+    return HttpResponse("About Us")
+
+def Contact(request):
+    return HttpResponse("Contact Us")
+
+def Programs(request):
+    return HttpResponse("Programs")
+
 nav = """
 <nav>
     <a href='/'>Home</a> |
     <a href='/about/'>About</a> |
     <a href='/contact/'>Contact</a> |
-    <a href='/services/'>Services</a> |
+    <a href='/programs/'>Programs</a> |
 </nav>
+"""
+name = "ABC College"
+faculty = "Faculty of Science"
+number_of_students = 5000
+
+home_body = f"""<h1>Welcome to {name}!</h1>
+<p>We are a prestigious institution dedicated to providing quality education and fostering a vibrant academic community.</p>
+<p>Our campus is home to state-of-the-art facilities, a diverse student body, and a wide range of academic programs.</p>
+<p>Join us to embark on a journey of knowledge, growth, and success!</p>
 """
 
 def home(request):
-    store_name = "ABC Dentistry Clinic"
-    
-    store_info = f"<h1>Welcome to {store_name}</h1><h2>Our Services</h2><p>We offer a wide range of dental services, including general dentistry, cosmetic dentistry, orthodontics, and more.Our team of experienced dentists is dedicated to providing high-quality care in a comfortable and friendly environment.</p>"
-    content = f"{store_info}"
+    return HttpResponse(nav + home_body)
 
-    return HttpResponse(nav + content)
-
-
-def About(request): 
-    content = f"""
-    <h1>About Us</h1>
-    <h2>Our Journey</h2>
-    <p>Founded in 2010, ABC Dentistry Clinic has been committed to providing exceptional dental care to our community. Our team of skilled dentists and staff work together to create a welcoming and comfortable environment for our patients.</p>
-    <h2>Our Mission</h2> """
-    return HttpResponse(nav + content)
-
-
-def Services(request):
-    content = f"""
-    <h1>Our Services</h1>
-    <ul>
-        <li><strong>General Dentistry:</strong> Routine check-ups, cleanings, fillings, and preventive care to maintain your oral health.</li>
-        <li><strong>Cosmetic Dentistry:</strong> Teeth whitening, veneers, and smile makeovers to enhance the appearance of your smile.</li>
-        <li><strong>Orthodontics:</strong> Braces and Invisalign to straighten teeth and correct bite issues.</li>
-        <li><strong>Restorative Dentistry:</strong> Crowns, bridges, and dental implants to restore damaged or missing teeth.</li>
-    </ul>
-    <p>Our team is dedicated to providing personalized care and ensuring that each patient receives the best treatment for their unique needs.</p>  
+def About(request):
+    about_body = f"""<h1>About Us</h1>
+    <p>{name} is a renowned educational institution committed to excellence in teaching, research, and community engagement.</p>
+    <p>Our mission is to empower students with the knowledge and skills they need to succeed in their chosen fields and make a positive impact on society.</p>
+    <p>With a rich history of academic achievements and a vibrant campus life, {name} offers a supportive and inclusive environment for students to thrive.</p>
     """
-    return HttpResponse(nav + content)
+    return HttpResponse(nav + about_body) 
 
 def Contact(request):
-    content = f"""
-    <h1>Contact Us</h1>
-    <p>If you have any questions or would like to schedule an appointment, please feel free to contact us:</p>
-    <ul>
-        <li><strong>Address:</strong> 123 Dental Avenue, Smile City</li>
-        <li><strong>Phone:</strong> (123) 456-7890</li>
-        <li><strong>Email:</strong> info@abcdn.com</li>
-    </ul>
-    <p>We look forward to hearing from you and helping you achieve a healthy, beautiful smile!</p>
+    contact_body = f"""<h1>Contact Us</h1>
+    <p>If you have any questions or would like to learn more about {name}, please feel free to reach out to us.</p>
+    <p>Email: contact@{name.lower().replace(' ', '')}.edu</p>
+    <p>Phone: (123) 456-7890</p>
     """
-    return HttpResponse(nav + content)
+    return HttpResponse(nav + contact_body) 
 
-
-
+def Programs(request):
+    programs_body = f"""<h1>Our Programs</h1>
+    <p>{name} offers a wide range of academic programs across various disciplines, including:</p>
+    <ul>
+        <li>Computer Science</li>
+        <li>Business Administration</li>
+        <li>Engineering</li>
+        <li>Arts and Humanities</li>
+        <li>Health Sciences</li>
+    </ul>
+    <p>Our programs are designed to provide students with a comprehensive education and prepare them for successful careers in their chosen fields.</p>
+    """
+    return HttpResponse(nav + programs_body)
