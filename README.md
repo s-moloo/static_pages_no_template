@@ -13,9 +13,9 @@ This is a simple Django-based web application developed to demonstrate the use o
 - 🔗 Navigation bar for easy page switching
 - ⚡ Built using Django views without templates (inline HTML)
 
-💻 Project Code
+💻 # Project Code
 
-🔹 config/settings.py
+🔹 # config/settings.py
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,10 +24,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'static_pages_1',
+    'static_pages_no_templates',
 ]
 
-🔹 static_pages_no_template/views.py
+
+🔹 # static_pages_no_template/views.py
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -85,13 +86,9 @@ def Programs(request):
     """
     return HttpResponse(nav + content)
 
-🔹 config/urls.py
+🔹 # config/urls.py
 
-from django.contrib import admin
-from django.urls import path
-from static_pages_1 import views
-
-urlpatterns = [
+# urlpatterns = [
     path('', views.home, name='home'),
     path('contact/', views.Contact, name="contact"),   
     path('about/', views.About, name="about"),
