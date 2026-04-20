@@ -1,6 +1,6 @@
 # Django Static Pages with no Templates
 
- Create 4 web pages with no style, each page should have the following tags:
+ Created 4 web pages with no style, each page should have the following tags:
         
  1. nav with anchor tags for every page, use | as separator
  2. h1
@@ -8,12 +8,12 @@
  4. p
    
 
-Submit repo with markdown file with blocks of code for: 
+Enclosed is the repo with markdown file with blocks of code for: 
 * views.py
 * urls.py
 * settings.py (INSTALLED_APPS only)
 
-Include screenshots for every page.
+Included screenshots for every page.
 
 Use only django.http.HttpResponse, for every page add any of these data (include name and values for every element using f strings with ol or ul tags):
 
@@ -21,7 +21,6 @@ Use only django.http.HttpResponse, for every page add any of these data (include
 * a list of mixed data types of length 6
 * a dictionary with string keys and different data types values of length 5
 
-## Exemple
 
 ### code
 
